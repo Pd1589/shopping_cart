@@ -45,9 +45,11 @@ current_time=datetime.datetime.now()
 Total_Price = 0
 selected_products = []
 while True:
-    selected_product = input("Please Input a Product ID: ")
+    selected_product = input("Please Input a Product ID, or type 'DONE': ")
     if selected_product == "DONE":
         break
+    if int(selected_product)>20:
+        print("Sorry, that product is not in our catalog, please input another or type 'DONE'")
     else: 
         selected_products.append(selected_product)
 print("-------------------------")
