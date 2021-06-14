@@ -40,6 +40,8 @@ def to_usd(my_price):
 #TODO: write some Python code here to produce the desired output
 
 #Get User Input
+import datetime
+current_time=datetime.datetime.now()
 Total_Price = 0
 selected_products = []
 while True:
@@ -48,12 +50,35 @@ while True:
         break
     else: 
         selected_products.append(selected_product)
-
+print("-------------------------")
+print("                          ")
+print("Pratik Desai's Grocery Outlet")
+print("                          ")
+print("PDOUTLET.COM")
+print("                          ")
+print("-------------------------")
+print("                          ")
+print("Checkout At:",str(current_time))
+print("-------------------------")
+print("                          ")
+print("Selected Products:")
 for selected_product in selected_products:
     matching_products = [p for p in products if str(p["id"]) == str(selected_product)]   
     matching_product = matching_products[0]
     Total_Price=Total_Price+matching_product["price"]
-    print("Selected Products: " + matching_product["name"]+" " + str(matching_product["price"]))
+    print("... " + matching_product["name"]+" " + to_usd(matching_product["price"]))
+print("-------------------------")
+print("                          ")
+print("Subtotal Price: ", to_usd(Total_Price))
 
-print("Total Price: ", to_usd(Total_Price))
+Tax=Total_Price*(.0825)
+print("Tax: ", to_usd(Tax))
+Total_Price_Tax=Total_Price+Tax
+print("Total Price: ", to_usd(Total_Price_Tax))
 
+print("                          ")
+print("-------------------------")
+print("                          ")
+print("Thanks for Shopping at Pratik Desai's Grocery Outlet")
+print("                          ")
+print("-------------------------")
