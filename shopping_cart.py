@@ -37,6 +37,15 @@ def to_usd(my_price):
     return f"${my_price:,.2f}" #> $12,000.71
 
 
-# TODO: write some Python code here to produce the desired output
+#TODO: write some Python code here to produce the desired output
 
-print(products)
+#Get User Input
+
+while True:
+    selected_product = input("Please Input a Product ID: ")
+    if selected_product == "DONE":
+        break
+    else: 
+        matching_products = [p for p in products if str(p["id"]) == str(selected_product)]   
+        matching_product = matching_products[0]
+        print("Selected Product: " + matching_product["name"]+" " + str(matching_product["price"]))
